@@ -1,0 +1,194 @@
+.card_Profile::after,
+.card_Profile img {
+  border-radius: 50%;
+}
+.card_Profile,
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card_Profile {
+  padding: 2.5rem 2rem;
+  border-radius: 10px;
+  background: #111;
+  width: 30rem;
+  box-shadow: 0 0 30px #111;
+  margin: 6rem auto;
+  position: relative;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  color: #fff;
+}
+.card_Profile::before,
+.card_Profile::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.card_Profile::before {
+  width: 100%;
+  height: 100%;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  top: -0.7rem;
+  left: -0.7rem;
+}
+.card_Profile::after {
+  height: 15rem;
+  width: 15rem;
+  background: #fff;
+  top: -8rem;
+  right: -8rem;
+}
+
+.card_Profile img {
+  width: 5rem;
+  box-shadow: 0 0 5px 5px #fff;
+  background: #fff;
+}
+
+.card_Profile .infos {
+  margin-left: 1.5rem;
+}
+
+.card_Profile .name {
+  margin-bottom: 1rem;
+}
+.card_Profile .name h2 {
+  font-size: 1.3rem;
+}
+.card_Profile .name h4 {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+.card_Profile .text {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.card_Profile .text .span {
+  font-size: 1rem;
+  color: #e91e63;
+}
+.cost_calculation {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 0 5px #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.card_Profile .stats {
+  margin-bottom: 1rem;
+}
+.card_Profile .stats li {
+  text-align: center;
+  background: #202020;
+  padding: 5px;
+  border-radius: 5px;
+}
+.card_Profile .stats li h3 {
+  font-size: 1rem;
+  color: #e91e63;
+}
+.card_Profile .stats li h4 {
+  font-size: 0.75rem;
+}
+
+.card_Profile .button_logOut {
+  padding: 5px 10px;
+  font-weight: bold;
+  text-decoration: none;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* AllExercises */
+.full_AllExercises {
+  padding: 2.5rem 2rem;
+  border-radius: 10px;
+  background: #111;
+  width: 80%;
+  box-shadow: 0 0 30px #111;
+  margin: 6rem auto;
+  position: relative;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  color: #fff;
+}
+
+.AllExercises {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.AllExercises th,
+.AllExercises tbody td {
+  padding: 1rem;
+  border-bottom: 1px solid #fff;
+  text-align: center;
+}
+
+.button_Div {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+button.button_Exercises {
+  padding: 5px 10px;
+  font-weight: bold;
+  text-decoration: none;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: auto;
+}
+
+button.button_Exercises.Done {
+  background-color: #45a049;
+}
+button.button_Exercises.Done svg {
+  font-size: 20px;
+}
+.button_Div button.button_Exercises {
+  font-size: 2rem;
+}
+
+td.data_Exercises_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+td.data_Exercises_img img {
+  width: 6rem;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+
+@media (max-width: 1023px) {
+  .card_Profile .infos {
+    margin-left: 0;
+    margin-top: 1.5rem;
+  }
+  .card_Profile {
+    width: 20rem;
+  }
+  .full_AllExercises {
+    padding: 1.5rem 1rem;
+    width: 100%;
+    overflow: auto;
+  }
+}

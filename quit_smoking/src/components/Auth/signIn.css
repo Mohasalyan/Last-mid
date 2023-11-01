@@ -1,0 +1,232 @@
+.signup_div {
+  width: 100%;
+  height: auto;
+  margin: 10rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup_div .main {
+  width: 25rem;
+  height: 45rem;
+  background: #111;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #111;
+}
+.signup_div #chk {
+  display: none;
+}
+.signup_div .login {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.signup_div label {
+  color: #fff;
+  font-size: 2.3em;
+  justify-content: center;
+  display: flex;
+  margin: 60px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.signup_div input {
+  width: 75%;
+  background: #111;
+  justify-content: center;
+  display: flex;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #313131;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+}
+.signup_div input:focus {
+  background: #111;
+  color: #fff;
+  box-shadow: 0 0 5px #fff;
+}
+.signup_div .button {
+  width: 60%;
+  height: 40px;
+  margin: 10px auto;
+  justify-content: center;
+  display: block;
+  color: #fff;
+  background: #313131;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+.signup_div .button:disabled {
+  opacity: 0.3;
+}
+.signup_div button:hover {
+  background: #111;
+  box-shadow: 0 0 5px #fff;
+}
+.signup_div .signup {
+  height: 100%;
+  background: #111;
+  border-radius: 60% / 10%;
+  transform: translateY(-180px);
+  transition: 0.8s ease-in-out;
+}
+.signup_div .signup label {
+  color: #fff;
+  transform: scale(0.6);
+}
+.signup_div .error_password {
+  width: 75%;
+  margin: 10px auto;
+  color: #f00;
+}
+
+.signup_div #chk:checked ~ .signup {
+  transform: translateY(-45rem);
+}
+.signup_div #chk:checked ~ .signup label {
+  transform: scale(1);
+}
+.signup_div #chk:checked ~ .login label {
+  transform: scale(0.6);
+}
+.signup input[type="number"]::-webkit-inner-spin-button,
+.signup input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.conditions_password {
+  position: relative;
+  width: 75%;
+  margin: auto;
+}
+
+.conditions_password input[type="password"],
+.conditions_password input[type="text"] {
+  width: 100%;
+}
+
+.conditions_password .All_Eye {
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.conditions_password svg {
+  width: 20px;
+  height: 20px;
+}
+.Price_dollar {
+  width: 75%;
+  background: #111;
+  display: flex;
+  margin: 20px auto;
+  color: #fff;
+  align-items: center;
+  gap: 1rem;
+}
+.Price_dollar input[type="number"] {
+  width: 100%;
+  margin: 0;
+}
+
+/* Gender */
+.radio_input_Gender {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  width: fit-content;
+  margin: auto;
+}
+
+.radio_input_Gender .pane {
+  outline: 2px solid #313131;
+  box-shadow: 0 0 10px #313132, inset 0 0 10px #313133;
+  height: 1cm;
+  width: 4.5cm;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.7s ease;
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio_input_Gender .input_Gender {
+  opacity: 0;
+}
+
+.radio_input_Gender .label {
+  float: left;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0px;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.radio_input_Gender .selection {
+  display: none;
+  position: absolute;
+  height: 1cm;
+  width: calc(4.5cm / 3);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 10px #313133;
+  transition: 0.15s ease;
+}
+
+.radio_input_Gender .label:has(input:checked) {
+  color: #fff;
+}
+
+.radio_input_Gender .pane:has(.label:nth-child(1):hover) {
+  transform: rotateY(-30deg);
+}
+
+.radio_input_Gender .pane:has(.label:nth-child(2):hover) {
+  transform: rotateY(35deg);
+}
+
+.radio_input_Gender .label:has(input:checked) ~ .selection {
+  background-color: #313131;
+  display: inline-block;
+}
+
+.radio_input_Gender .label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(4.5cm * 0 / 3));
+}
+
+.radio_input_Gender .label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(4.5cm * 2 / 3));
+}
+
+/* End Gender */
+
+@media screen and (max-width: 768px) {
+  .signup_div .main {
+    width: 20rem;
+  }
+}

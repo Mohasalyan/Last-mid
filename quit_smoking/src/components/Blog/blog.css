@@ -1,0 +1,93 @@
+.blogs_items_all {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.blogs_items {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  cursor: pointer;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: fit-content;
+  margin: auto;
+}
+
+.blogs_items.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.blogs_items .first-img {
+  width: 30rem;
+  height: 20rem;
+  overflow: hidden;
+}
+.blogs_items .first-img img {
+  object-fit: cover;
+  object-position: center;
+  width: 30rem;
+  height: 20rem;
+}
+.blogs_items .content {
+  width: 30rem;
+}
+.blogs_items .content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.blogs_items .content p {
+  color: #999;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.blogs_items .content .date {
+  font-family: Arial;
+  font-style: italic;
+  color: lightgrey;
+  font-size: 0.9em;
+}
+
+.blogs_items_all .button {
+  background-color: #ffffff00;
+  width: 8.5em;
+  height: 2.9em;
+  border: #000 0.2em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+  color: #000;
+  margin: 1rem auto;
+}
+
+.blogs_items_all .button:hover {
+  background: #000;
+  cursor: pointer;
+  color: #fff;
+}
+
+.blogs_items_all .button svg {
+  width: 1.6em;
+  margin: -0.2em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.blogs_items_all .button:hover svg {
+  transform: translateX(5px);
+}
+
+.blogs_items_all .button_more {
+  margin: 0 1.5em;
+}
+
+@media screen and (max-width: 768px) {
+  .blogs_items .first-img {
+    width: 20rem;
+  }
+  .blogs_items .content {
+    width: 20rem;
+  }
+}
