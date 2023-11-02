@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import { FaTasks } from "react-icons/fa";
 import { BsCheckLg } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import Walk from "../../../assets/Walk.webp";
 import Read from "../../../assets/Read.webp";
 import Squat from "../../../assets/Squat.webp";
+import AddTask from "./AddTask";
+import AddTaskView from "./AddTaskView";
+import { toast } from "react-toastify";
 
 const QuitSmoking = () => {
   const loginData = localStorage.getItem("login");
   const [data, setData] = useState(null);
   const [index, setIndex] = useState(null);
   const [localStorageUpdateFlag, setLocalStorageUpdateFlag] = useState(false);
+  const [openAddTask, setOpenAddTask] = useState(false);
 
   if (loginData === "true") {
     const userData = JSON.parse(localStorage.getItem("user_data")) || {};
@@ -33,6 +37,7 @@ const QuitSmoking = () => {
         Exercises_data[Math.floor(Math.random() * Exercises_data.length)];
 
       tableQuitSmoking.push({
+        AddTask: "",
         table: i + 1,
         number_cigarettes: number_cigarettes - i - 1,
         number_cigarettes_status: 0,
@@ -50,6 +55,7 @@ const QuitSmoking = () => {
     }
 
     ///////////////////
+    const [newindex, setNewindex] = useState(null);
 
     useEffect(() => {
       const localStorageData = JSON.parse(
@@ -62,6 +68,7 @@ const QuitSmoking = () => {
 
       setData(filteredData);
       setIndex(localStorageData.findIndex((item) => item.status === 0));
+      setNewindex(filteredData);
     }, [localStorageUpdateFlag]);
 
     const handleExerciseStatusChange = () => {
@@ -80,6 +87,8 @@ const QuitSmoking = () => {
         );
 
         setData(updatedData);
+
+        toast.success("successfully Done.");
       }
     };
 
@@ -122,8 +131,31 @@ const QuitSmoking = () => {
         setData(updatedData);
 
         setLocalStorageUpdateFlag((prevFlag) => !prevFlag);
+
+        toast.success("successfully Done.");
       }
     };
+
+    const handleopenAddTask = () => {
+      setOpenAddTask(!openAddTask);
+      window.scrollTo(0, 0);
+    };
+
+    let successfully_task = "";
+
+    if (data && data.AddTask) {
+      const allStatesAreOne = data.AddTask.every((item) => item.state == 1);
+
+      if (
+        allStatesAreOne &&
+        data.number_cigarettes_status === 1 &&
+        data.Exercises_status === 1
+      ) {
+        successfully_task = "successfully_task";
+      }
+    } else {
+      successfully_task = "New_task";
+    }
 
     return (
       <div className="full_AllExercises">
@@ -194,11 +226,30 @@ const QuitSmoking = () => {
                     )}
                   </td>
                 </tr>
+
+                <AddTaskView
+                  newindex={newindex}
+                  setLocalStorageUpdateFlag={setLocalStorageUpdateFlag}
+                />
               </tbody>
             </table>
+            <div className="add_task">
+              <button className="button_Exercises" onClick={handleopenAddTask}>
+                Add Task
+              </button>
+              <AddTask
+                index={newindex.table - 1}
+                openAddTask={openAddTask}
+                setOpenAddTask={setOpenAddTask}
+                setLocalStorageUpdateFlag={setLocalStorageUpdateFlag}
+              />
+            </div>
 
             <div className="button_Div">
-              {data.status === 0 && data.Exercises_status === 1 ? (
+              {(data.number_cigarettes_status === 1 &&
+                data.Exercises_status === 1 &&
+                successfully_task === "New_task") ||
+              successfully_task === "successfully_task" ? (
                 <button
                   className="button_Exercises"
                   onClick={handleStatusChange}
@@ -211,8 +262,14 @@ const QuitSmoking = () => {
             </div>
           </>
         ) : (
-          <p>No data matching the condition found.</p>
+          <p>congratulations to end the challenge period to quit smoking</p>
         )}
+
+        <div className="TaskHistory">
+          <NavLink className="button_Exercises" to="/task-history">
+            Task History
+          </NavLink>
+        </div>
       </div>
     );
   } else {

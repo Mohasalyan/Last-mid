@@ -134,14 +134,20 @@
   padding: 1rem;
   border-bottom: 1px solid #fff;
   text-align: center;
+  width: 100%;
 }
 
-.button_Div {
+.button_Div,
+.add_task {
   display: flex;
   justify-content: flex-end;
   margin: 1rem;
 }
-button.button_Exercises {
+.add_task button.button_Exercises {
+  margin: 0;
+}
+button.button_Exercises,
+a.button_Exercises {
   padding: 5px 10px;
   font-weight: bold;
   text-decoration: none;
@@ -154,6 +160,14 @@ button.button_Exercises {
   align-items: center;
   gap: 5px;
   margin: auto;
+}
+a.button_Exercises {
+  width: fit-content;
+}
+
+.button_Exercises:hover {
+  border: 1px solid #e91e63;
+  color: #e91e63;
 }
 
 button.button_Exercises.Done {
@@ -177,6 +191,74 @@ td.data_Exercises_img img {
   border-radius: 50%;
   border: 5px solid #fff;
 }
+
+/* AddTask */
+.full_AddTask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.full_AddTask .form-card {
+  position: relative;
+  width: 100%;
+}
+.full_AddTask input.form-input {
+  padding: 20px 25px 15px;
+  width: 100%;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: transparent;
+  outline: none;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  box-sizing: border-box;
+  color: #fff !important;
+}
+.full_AddTask label.form-label {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s;
+  margin: 0;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fff;
+}
+.full_AddTask .input_AddTask {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin: 5rem auto;
+}
+.full_AddTask input.form-input:focus ~ .form-valid,
+.full_AddTask input.form-input:focus ~ .form-label {
+  color: #fff;
+  top: 30%;
+  transform: translateY(-70%);
+  font-size: 13px;
+  line-height: 23px;
+}
+.full_AddTask svg {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 5px #fff;
+  border-radius: 50%;
+}
+/* ENd AddTask */
 
 @media (max-width: 1023px) {
   .card_Profile .infos {

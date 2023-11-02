@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../signIn.css";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useAuth } from "../ConditionAuth";

@@ -45,9 +45,10 @@
 .blogs_items .content h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 .blogs_items .content p {
-  color: #999;
+  color: #fff;
   font-size: 14px;
   line-height: 24px;
   font-weight: 400;
@@ -55,7 +56,7 @@
 .blogs_items .content .date {
   font-family: Arial;
   font-style: italic;
-  color: lightgrey;
+  color: #fff;
   font-size: 0.9em;
 }
 
